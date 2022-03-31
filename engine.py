@@ -20,7 +20,7 @@ print("First gate loaded")
 '''
 model_1 = 'ft_model_1.h5'
 if os.path.exists(model_1):
-	second_gate = tf.keras.models.load_model('ft_model_1.h5')
+	second_gate = tf.keras.models.load_model(model_1)
 print("Second gate loaded")
 '''
 location_model = load_model('static/models/ft_model_2.h5')
