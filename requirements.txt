@@ -1,4 +1,4 @@
-tensorflow-cpu==2.4.0rc
+tensorflow-cpu==2.4.0
 numpy==1.19.2
 flask
 Cython
