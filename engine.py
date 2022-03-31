@@ -13,20 +13,23 @@ from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.utils import get_file
 
 # Load models and support
+'''
 first_gate = VGG16(weights='imagenet')
 print("First gate loaded")
+'''
 second_gate = load_model('static/models/ft_model_1.h5')
 print("Second gate loaded")
-
+'''
 location_model = load_model('static/models/ft_model_2.h5')
 print("Location model loaded")
-
+'''
 severity_model = load_model('static/models/ft_model_3.h5')
 print("Severity model loaded")
+'''
 with open('static/models/vgg16_cat_list.pk', 'rb') as f:
 	cat_list = pk.load(f)
 print("Cat list loaded")
-
+'''
 # from Keras GitHub  
 CLASS_INDEX = None
 CLASS_INDEX_PATH = 'https://s3.amazonaws.com/deep-learning-models/image-models/imagenet_class_index.json'
@@ -111,6 +114,7 @@ def severity_assessment(img_256, model):
 # load models
 def engine(img_path):
 	img_224 = prepare_img_224(img_path)
+	'''
 	g1 = car_categories_gate(img_224, first_gate)
 
 	if g1 is False:
@@ -125,7 +129,7 @@ def engine(img_path):
 		'severity': None,
 		'final': 'Damage assessment unsuccessful!'}
 		return result
-		
+	'''
 	img_256 = prepare_img_256(img_path)
 	g2 = car_damage_gate(img_256, second_gate)
 
@@ -142,7 +146,7 @@ def engine(img_path):
 		'final': 'Damage assessment unsuccessful!'}
 		return result
 	
-	x = location_assessment(img_256, location_model)
+	#x = location_assessment(img_256, location_model)
 	y = severity_assessment(img_256, severity_model)
 	
 	result = {'gate1': 'Car validation check: ', 
@@ -151,7 +155,6 @@ def engine(img_path):
 	'gate2': 'Damage presence check: ',
 	'gate2_result': 1,
 	'gate2_message': {0: None, 1: None},
-	'location': x,
 	'severity': y,
 	'final': 'Damage assessment complete!'}
 	return result
