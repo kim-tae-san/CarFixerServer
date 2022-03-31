@@ -18,7 +18,7 @@ from tensorflow.keras.utils import get_file
 first_gate = VGG16(weights='imagenet')
 print("First gate loaded")
 '''
-model_1 = os.path.join(dirname(realpath(__file__)), "ft_model_1.h5")
+model_1 = os.path.join(os.path.dirname(realpath(__file__)), "ft_model_1.h5")
 second_gate = load_model(model_1)
 print("Second gate loaded")
 '''
