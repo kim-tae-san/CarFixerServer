@@ -23,7 +23,7 @@ def upload_and_classify():
 		url = url.replace('images/', r'images%2F')
 		print(url)
 		token = request.args.get('token')
-		if len(token) > 0:
+		if token not null:
 			model_results = engine.engine(url + "&token=" + token)
 		else:
 			model_results = engine.engine(url)
