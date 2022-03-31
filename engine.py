@@ -18,7 +18,9 @@ from tensorflow.keras.utils import get_file
 first_gate = VGG16(weights='imagenet')
 print("First gate loaded")
 '''
-second_gate = tf.keras.models.load_model('ft_model_1.h5')
+model_1 = 'ft_model_1.h5'
+if os.path.exists(model_1):
+	second_gate = tf.keras.models.load_model('ft_model_1.h5')
 print("Second gate loaded")
 '''
 location_model = load_model('static/models/ft_model_2.h5')
