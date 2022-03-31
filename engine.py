@@ -18,14 +18,13 @@ from tensorflow.keras.utils import get_file
 first_gate = VGG16(weights='imagenet')
 print("First gate loaded")
 '''
-model_1 = os.path.join(os.path.dirname(os.path.realpath(__file__)), "ft_model_1.h5")
-second_gate = load_model(model_1)
+second_gate = load_model("ft_model_1.h5")
 print("Second gate loaded")
 '''
 location_model = load_model('static/models/ft_model_2.h5')
 print("Location model loaded")
 '''
-severity_model = tf.keras.models.load_model('ft_model_3.h5')
+severity_model = load_model('ft_model_3.h5')
 print("Severity model loaded")
 '''
 with open('static/models/vgg16_cat_list.pk', 'rb') as f:
